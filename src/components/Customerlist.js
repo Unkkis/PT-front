@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import Deletecustomer from './Deletecustomer';
 import Editcustomer from './Editcustomer';
-
+import Addtraining from './Addtraining';
 
 export default function Customerlist() {
 
@@ -16,26 +16,32 @@ export default function Customerlist() {
     });
 
     const columns = [
-        { field: 'firstname', headerName: 'Firstname', width: 150 },
-        { field: 'lastname', headerName: 'Lastname', width: 150 },
+        { field: 'firstname', headerName: 'Firstname', width: 100 },
+        { field: 'lastname', headerName: 'Lastname', width: 100 },
         { field: 'streetaddress', headerName: 'Street', width: 150 },
-        { field: 'postcode', headerName: 'ZIP', width: 150 },
-        { field: 'city', headerName: 'City', width: 150 },
+        { field: 'postcode', headerName: 'ZIP', width: 80 },
+        { field: 'city', headerName: 'City', width: 100 },
         { field: 'email', headerName: 'E-mail', width: 150 },
         { field: 'phone', headerName: 'Phone', width: 150 },
         { field: 'links.self.href',
-          headerName: '',
+          headerName: 'Customer functions',
           sortable: false, 
           filterable: false,
           width: 150,
           renderCell: row =>
-            <div  style={{
-                display: 'flex'}}>
-            <Deletecustomer link={row.id} />
-            <Editcustomer link={row.id} customer={row.row} />
+            <div  style={{display: 'flex'}}>
+                <Deletecustomer link={row.id} />
+                <Editcustomer link={row.id} customer={row.row} />
             </div>
-        
-        }
+        },        
+        { field: '',
+        headerName: 'Trainings',
+        sortable: false, 
+        filterable: false,
+        width: 150,
+        renderCell: row =>
+          <Addtraining link={row.id} customer={row.row} customers={customers}/>      
+      }
    
 
     ]

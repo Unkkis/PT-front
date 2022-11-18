@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid'
 import dayjs from 'dayjs'
+import Deletetraining from './Deletetraining';
 
 
 export default function Trainingslist() {
@@ -20,7 +21,7 @@ export default function Trainingslist() {
             renderCell: row => {
                 const date = row.value
                 return(
-                   <div>{dayjs(date).date()}.{dayjs(date).month()+1}.{dayjs(date).year()} {dayjs(date).hour()}:{dayjs(date).minute()}</div>
+                   <div>{dayjs(date).format('DD.MM.YYYY HH:mm')}</div>
                 )
             }
         },
@@ -32,7 +33,9 @@ export default function Trainingslist() {
             {row.value.firstname} {row.value.lastname} (Phone: {row.value.phone} Email: {row.value.email})
             </div>
         )
-        }
+        },
+        { field: 'id', headerName: '', width: 150,
+        renderCell: row => <Deletetraining id={row.id} />}
 
         
     ]
