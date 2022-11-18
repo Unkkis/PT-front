@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid'
+import { DataGrid } from '@mui/x-data-grid';
+import Deletecustomer from './Deletecustomer';
+import Editcustomer from './Editcustomer';
 
 
 export default function Customerlist() {
@@ -20,13 +22,27 @@ export default function Customerlist() {
         { field: 'postcode', headerName: 'ZIP', width: 150 },
         { field: 'city', headerName: 'City', width: 150 },
         { field: 'email', headerName: 'E-mail', width: 150 },
-        { field: 'phone', headerName: 'Phone', width: 150 }
+        { field: 'phone', headerName: 'Phone', width: 150 },
+        { field: 'links.self.href',
+          headerName: '',
+          sortable: false, 
+          filterable: false,
+          width: 150,
+          renderCell: row =>
+            <div  style={{
+                display: 'flex'}}>
+            <Deletecustomer link={row.id} />
+            <Editcustomer link={row.id} customer={row.row} />
+            </div>
+        
+        }
+   
 
     ]
 
 
     return (
-        <div style={{height: 500, width: '80%'}}>
+        <div style={{height: 500, width: '90%'}}>
             <DataGrid 
                 rows={customers}
                 columns={columns}

@@ -6,18 +6,17 @@ import Mainpage from './components/Mainpage';
 import Trainingslist from './components/Trainingslist';
 import Calendarpage from './components/Calendarpage';
 import Chartspage from './components/Chartspage';
-import { Grid } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <Navigation />
-      <Grid container spacing={0}>
-        <Grid item xs={1}>
+      <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',}}>
 
-        </Grid>
-        <Grid item xs={11}>
-        <BrowserRouter>
+        <BrowserRouter >
           <Routes>
             <Route exact path="/" element={<Mainpage />} />
             <Route path="/customers" element={<Customerlist />} />
@@ -26,8 +25,8 @@ function App() {
             <Route path="/charts" element={<Chartspage />} />
           </Routes>
         </BrowserRouter>
-        </Grid>
-      </Grid>
+      </div>
+   
     </div>
   );
 }

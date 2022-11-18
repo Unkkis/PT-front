@@ -9,9 +9,10 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import Addcustomer from './Addcustomer';
 
 /*
-This component mainly made acording to https://mui.com/material-ui/react-app-bar/ "App Bar with responsive menu"
+This component source is https://mui.com/material-ui/react-app-bar/ "App Bar with responsive menu"
 */
 
 const pages = [
@@ -122,8 +123,9 @@ function Navigation() {
               </Button>
             ))}
           </Box>
-
+          <Addcustomer />
         </Toolbar>
+        
       </Container>
     </AppBar>
   );
