@@ -3,10 +3,13 @@ import { DataGrid } from '@mui/x-data-grid';
 import Deletecustomer from './Deletecustomer';
 import Editcustomer from './Editcustomer';
 import Addtraining from './Addtraining';
+import SnackbarRenderer from './SnackbarRenderer';
 
 export default function Customerlist() {
 
     const [customers, setCustomers] = useState([]);
+    const [open, setOpen] = useState(false);
+    const [message, setMessage] = useState('');
 
     useEffect( () => {
         fetch('https://customerrest.herokuapp.com/api/customers')
@@ -30,8 +33,8 @@ export default function Customerlist() {
           width: 150,
           renderCell: row =>
             <div  style={{display: 'flex'}}>
-                <Deletecustomer link={row.id} />
-                <Editcustomer link={row.id} customer={row.row} />
+                <Deletecustomer link={row.id} setMessage={setMessage} setOpen={setOpen}/>
+                <Editcustomer link={row.id} customer={row.row} setMessage={setMessage} setOpen={setOpen} />
             </div>
         },        
         { field: '',
@@ -40,11 +43,18 @@ export default function Customerlist() {
         filterable: false,
         width: 150,
         renderCell: row =>
-          <Addtraining link={row.id} customer={row.row} customers={customers}/>      
+          <Addtraining link={row.id} customer={row.row} customers={customers} setMessage={setMessage} setOpen={setOpen}/>      
       }
    
 
     ]
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
 
 
     return (
@@ -56,6 +66,8 @@ export default function Customerlist() {
                 pageSize={7}
                 rowsPerPageOptions={[7]}
             />
+            <SnackbarRenderer open={open} handleClose={handleClose} message={message}  />
+
         </div>
     )
     

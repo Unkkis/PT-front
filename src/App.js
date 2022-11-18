@@ -6,6 +6,7 @@ import Mainpage from './components/Mainpage';
 import Trainingslist from './components/Trainingslist';
 import Calendarpage from './components/Calendarpage';
 import Chartspage from './components/Chartspage';
+import SnackbarRenderer from './components/SnackbarRenderer';
 
 function App() {
   return (
@@ -26,7 +27,6 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
-   
     </div>
   );
 }

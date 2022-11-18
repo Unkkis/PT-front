@@ -51,9 +51,18 @@ export default function Addtraining(props) {
             },
             body: JSON.stringify(training)
         })
+        .then(response => {
+            if (response.ok) {
+              props.setMessage("Training added");
+              props.setOpen(true);
+            }
+            else {
+              props.setMessage("Something went wrong, Training not added");
+              props.setOpen(true);
+            }
+        })
         .catch(err => console.error(err))
         handleClose();
-        console.log(training)
       }
 
     return (

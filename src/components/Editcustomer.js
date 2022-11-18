@@ -49,6 +49,16 @@ export default function Editcustomer(props) {
             },
             body: JSON.stringify(customer)
         })
+        .then(response => {
+            if (response.ok) {
+              props.setMessage("Customer edited");
+              props.setOpen(true);
+            }
+            else {
+              props.setMessage("Something went wrong, customer not edited");
+              props.setOpen(true);
+            }
+          })
         .catch(err => console.error(err))
         handleClose();
       }
