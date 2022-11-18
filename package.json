@@ -1,7 +1,7 @@
 {
   "name": "pt-front",
   "version": "0.1.0",
-  "homepage": "https://unkkis.github.io/pr-front",
+  "homepage": "https://unkkis.github.io/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
