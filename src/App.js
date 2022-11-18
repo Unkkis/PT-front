@@ -6,7 +6,6 @@ import Mainpage from './components/Mainpage';
 import Trainingslist from './components/Trainingslist';
 import Calendarpage from './components/Calendarpage';
 import Chartspage from './components/Chartspage';
-import SnackbarRenderer from './components/SnackbarRenderer';
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
 
         <BrowserRouter >
           <Routes>
-            <Route exact path="/" element={<Mainpage />} />
+            <Route exact path="/" element={<Customerlist />} />
             <Route path="/customers" element={<Customerlist />} />
             <Route path="/trainings" element={<Trainingslist />} />
             <Route path="/calendar" element={<Calendarpage />} />
