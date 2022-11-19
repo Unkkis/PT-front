@@ -19,8 +19,8 @@ function App() {
         <BrowserRouter >
           <Routes>
             <Route exact path="/" element={<Customerlist />} />
-            <Route path="/customers" element={<Customerlist />} />
-            <Route path="/trainings" element={<Trainingslist />} />
+            <Route exact path="/customers" element={<Customerlist />} />
+            <Route exact path="/trainings" element={<Trainingslist />} />
             <Route path="/calendar" element={<Calendarpage />} />
             <Route path="/charts" element={<Chartspage />} />
           </Routes>

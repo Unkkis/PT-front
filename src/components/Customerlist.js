@@ -58,7 +58,7 @@ export default function Customerlist() {
 
 
     return (
-        <div style={{height: 500, width: '90%'}}>
+        <div style={{display: 'flex', height: 500, width: '90%'}}>
             <DataGrid 
                 rows={customers}
                 columns={columns}

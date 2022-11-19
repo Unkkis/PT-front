@@ -42,7 +42,7 @@ export default function Trainingslist() {
 
 
     return (
-        <div style={{height: 500, width: '80%'}}>
+        <div style={{height: 500, width: '90%'}}>
             <DataGrid 
                 rows={trainings}
                 columns={columns}
