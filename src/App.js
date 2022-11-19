@@ -18,11 +18,11 @@ function App() {
 
         <BrowserRouter >
           <Routes>
-            <Route exact path="/" element={<Customerlist />} />
-            <Route path="/customers" element={<Customerlist />} />
-            <Route path="/trainings" element={<Trainingslist />} />
-            <Route path="/calendar" element={<Calendarpage />} />
-            <Route path="/charts" element={<Chartspage />} />
+            <Route exact path="/PT-front" element={<Customerlist />} />
+            <Route path="/PT-front/customers" element={<Customerlist />} />
+            <Route path="/PT-front/trainings" element={<Trainingslist />} />
+            <Route path="/PT-front/calendar" element={<Calendarpage />} />
+            <Route path="/PT-front/charts" element={<Chartspage />} />
           </Routes>
         </BrowserRouter>
       </div>
