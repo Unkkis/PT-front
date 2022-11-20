@@ -1,9 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid, GridToolbarContainer, GridToolbarExport } from '@mui/x-data-grid';
 import Deletecustomer from './Deletecustomer';
 import Editcustomer from './Editcustomer';
 import Addtraining from './Addtraining';
 import SnackbarRenderer from './SnackbarRenderer';
+
+
+function ExportToolbar() {
+    return (
+      <GridToolbarContainer>
+        <GridToolbarExport />
+      </GridToolbarContainer>
+    );
+  }
+  
 
 export default function Customerlist() {
 
@@ -28,6 +38,7 @@ export default function Customerlist() {
         { field: 'phone', headerName: 'Phone', width: 150 },
         { field: 'links.self.href',
           headerName: 'Customer functions',
+          disableExport: true,
           sortable: false, 
           filterable: false,
           width: 150,
@@ -39,6 +50,7 @@ export default function Customerlist() {
         },        
         { field: '',
         headerName: 'Trainings',
+        disableExport: true,
         sortable: false, 
         filterable: false,
         width: 150,
@@ -58,13 +70,16 @@ export default function Customerlist() {
 
 
     return (
-        <div style={{display: 'flex', height: 500, width: '90%'}}>
+        <div style={{display: 'flex', height: 600, width: '90%'}}>
             <DataGrid 
                 rows={customers}
                 columns={columns}
                 getRowId={row => row.links[1].href}
-                pageSize={7}
-                rowsPerPageOptions={[7]}
+                pageSize={8}
+                rowsPerPageOptions={[8]}
+                components={{
+                    Toolbar: ExportToolbar,
+                }}
             />
             <SnackbarRenderer open={open} handleClose={handleClose} message={message}  />
 

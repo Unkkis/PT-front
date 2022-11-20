@@ -10,6 +10,7 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Addcustomer from './Addcustomer';
+import { Link } from"react-router-dom";
 
 /*
 This component source is https://mui.com/material-ui/react-app-bar/ "App Bar with responsive menu"
@@ -39,11 +40,11 @@ function Navigation() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <Link to="/" style={{ textDecoration: 'none', color:'white' }}>
            <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -56,6 +57,7 @@ function Navigation() {
           >
             PT-FRONTTI
           </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
@@ -87,17 +89,20 @@ function Navigation() {
               }}
             >
               {pages.map((page) => (
+                <Link to={page.href} style={{ textDecoration: 'none' }}>
                 <MenuItem key={page.name} onClick={handleCloseNavMenu} >
                   <Typography textAlign="center"><Button href={page.href}>{page.name}</Button></Typography>
                 </MenuItem>
+                </Link>
               ))}
             </Menu>
           </Box>
+          <Link to="/" style={{ textDecoration: 'none' , color:'white'}}>
            <Typography
             variant="h5"
             noWrap
             component="a"
-            href="/"
+            
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -111,16 +116,20 @@ function Navigation() {
           >
             PT-FRONTTI
           </Typography>
+          </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
+              <Link to={page.href} style={{ textDecoration: 'none' }}>
               <Button
-                href={page.href}
+               
                 key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page.name}
+               
               </Button>
+              </Link>
             ))}
           </Box>
           <Addcustomer />
