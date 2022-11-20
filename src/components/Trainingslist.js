@@ -17,6 +17,8 @@ export default function Trainingslist() {
     });
 
     const columns = [
+        { field: 'id', headerName: 'Delete', width: 80,
+        renderCell: row => <Deletetraining id={row.id} />},
         { field: 'date', headerName: 'Date', width: 150,
             renderCell: row => {
                 const date = row.value
@@ -33,11 +35,7 @@ export default function Trainingslist() {
             {row.value.firstname} {row.value.lastname} (Phone: {row.value.phone} Email: {row.value.email})
             </div>
         )
-        },
-        { field: 'id', headerName: '', width: 150,
-        renderCell: row => <Deletetraining id={row.id} />}
-
-        
+        }        
     ]
 
 
@@ -47,8 +45,8 @@ export default function Trainingslist() {
                 rows={trainings}
                 columns={columns}
                 getRowId={row => row.id}
-                pageSize={7}
-                rowsPerPageOptions={[7]}
+                pageSize={8}
+                rowsPerPageOptions={[8]}
             />
         </div>
     )

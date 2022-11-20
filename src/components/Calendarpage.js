@@ -1,12 +1,12 @@
-import React, { useEffect, useState, Fragment, useMemo } from 'react';
-import { Calendar, momentLocalizer,  Views } from 'react-big-calendar'
-import moment from 'moment'
+import React, { useEffect, useState } from 'react';
+import { Calendar, luxonLocalizer,  Views } from 'react-big-calendar'
+import { DateTime } from "luxon";
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 
-export default function Calendarpage(props, dayLayoutAlgorithm = 'no-overlap') {
+export default function Calendarpage() {
 
-    const localizer = momentLocalizer(moment)
+  const localizer = luxonLocalizer(DateTime, { firstDayOfWeek: 1 })
 
     const [trainings, setTrainings] = useState([]);
     
@@ -15,30 +15,28 @@ export default function Calendarpage(props, dayLayoutAlgorithm = 'no-overlap') {
         .then(response => response.json())
         .then(data => setTrainings(data))
         .catch(err => console.error(err));
-    });
+    }, []);
 
-    const { defaultDate, scrollToTime } = useMemo(
-        () => ({
-          defaultDate: new Date(2015, 3, 12),
-          scrollToTime: new Date(1970, 1, 1, 6),
-        }),
-        []
-      )
+    const events = trainings.map((training) => (
+        {
+          title: `${training.activity} / ${training.customer.lastname} ${training.customer.firstname}`,
+          start: new Date(training.date),
+          end: new Date(new Date(training.date).getTime() + (training.duration*60000))
+        }
+        
+    ))
 
     return (
-        <Fragment>
-          <div className="height600">
+          <div style={{height: 600}}>
           <Calendar
-            dayLayoutAlgorithm={dayLayoutAlgorithm}
             defaultView={Views.WEEK}
-            events={trainings}
+            events={events}
             localizer={localizer}
-            selectable
-            defaultDate={defaultDate}
-            scrollToTime={scrollToTime}
+            popup
+            scrollToTime={DateTime.local().toJSDate()}
           />
         </div>
-      </Fragment>
+
     )
     
 

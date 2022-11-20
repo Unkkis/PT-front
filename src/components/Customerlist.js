@@ -29,36 +29,34 @@ export default function Customerlist() {
     });
 
     const columns = [
+        { field: '',
+            headerName: 'Trainings',
+            disableExport: true,
+            sortable: false, 
+            filterable: false,
+            width: 100,
+            renderCell: row =>
+            <Addtraining link={row.id} customer={row.row} customers={customers} setMessage={setMessage} setOpen={setOpen}/>      
+        },
+        { field: 'links.self.href',
+            headerName: 'Functions',
+            disableExport: true,
+            sortable: false, 
+            filterable: false,
+            width: 100,
+            renderCell: row =>
+            <div  style={{display: 'flex'}}>
+                <Deletecustomer link={row.id} setMessage={setMessage} setOpen={setOpen}/>
+                <Editcustomer link={row.id} customer={row.row} setMessage={setMessage} setOpen={setOpen} />
+            </div>
+        },        
         { field: 'firstname', headerName: 'Firstname', width: 100 },
         { field: 'lastname', headerName: 'Lastname', width: 100 },
         { field: 'streetaddress', headerName: 'Street', width: 150 },
         { field: 'postcode', headerName: 'ZIP', width: 80 },
         { field: 'city', headerName: 'City', width: 100 },
         { field: 'email', headerName: 'E-mail', width: 150 },
-        { field: 'phone', headerName: 'Phone', width: 150 },
-        { field: 'links.self.href',
-          headerName: 'Customer functions',
-          disableExport: true,
-          sortable: false, 
-          filterable: false,
-          width: 150,
-          renderCell: row =>
-            <div  style={{display: 'flex'}}>
-                <Deletecustomer link={row.id} setMessage={setMessage} setOpen={setOpen}/>
-                <Editcustomer link={row.id} customer={row.row} setMessage={setMessage} setOpen={setOpen} />
-            </div>
-        },        
-        { field: '',
-        headerName: 'Trainings',
-        disableExport: true,
-        sortable: false, 
-        filterable: false,
-        width: 150,
-        renderCell: row =>
-          <Addtraining link={row.id} customer={row.row} customers={customers} setMessage={setMessage} setOpen={setOpen}/>      
-      }
-   
-
+        { field: 'phone', headerName: 'Phone', width: 150 }
     ]
 
     const handleClose = (event, reason) => {

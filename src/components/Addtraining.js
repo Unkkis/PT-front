@@ -67,7 +67,7 @@ export default function Addtraining(props) {
 
     return (
         <div>
-            <Button onClick={handleClickOpen} variant="contained" size="small" >Add Training</Button>
+            <Button onClick={handleClickOpen} variant="contained" size="small" >Add</Button>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Add new training</DialogTitle>
 

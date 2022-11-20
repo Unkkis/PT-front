@@ -9,15 +9,10 @@ import Mainpage from './components/Mainpage';
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
       <BrowserRouter >
         <Navigation />
-        <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',}}>
-
-
+        <div style={{  margin: 'auto', padding: '20px'}}>
             <Routes>
               <Route exact path="/" element={<Mainpage />} />
               <Route path="/customers" element={<Customerlist />} />

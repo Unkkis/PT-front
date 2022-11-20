@@ -44,7 +44,7 @@ function Navigation() {
            <Typography
             variant="h6"
             noWrap
-            component="a"
+            
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -89,9 +89,9 @@ function Navigation() {
               }}
             >
               {pages.map((page) => (
-                <Link to={page.href} style={{ textDecoration: 'none' }}>
+                <Link to={page.href} key={page.name} style={{ textDecoration: 'none' }}>
                 <MenuItem key={page.name} onClick={handleCloseNavMenu} >
-                  <Typography textAlign="center"><Button href={page.href}>{page.name}</Button></Typography>
+                  <Button>{page.name}</Button>
                 </MenuItem>
                 </Link>
               ))}
@@ -101,7 +101,7 @@ function Navigation() {
            <Typography
             variant="h5"
             noWrap
-            component="a"
+            
             
             sx={{
               mr: 2,
@@ -119,7 +119,7 @@ function Navigation() {
           </Link>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Link to={page.href} style={{ textDecoration: 'none' }}>
+              <Link to={page.href} key={page.name} style={{ textDecoration: 'none' }}>
               <Button
                
                 key={page.name}

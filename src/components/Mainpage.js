@@ -7,24 +7,23 @@ export default function Mainpage() {
 
 
     return (
-        <div>
-            <p>Tämä on pääsivu</p>
-            <div style={{display: 'flex'}}>
+        <div style={{margin: 'auto', width: '50%'}}>
+            <div style={{display: 'flex', width:'100%', padding:'20px'}}>
             <Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}>
-                <Link to='/customers' style={{ textDecoration: 'none', color:'blue' }}>Customers</Link>
+                <Link to='/customers' key="customers" style={{ textDecoration: 'none', color:'blue' }}>Customers</Link>
             </Button>
             <Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}>
-                <Link to='/trainings' style={{ textDecoration: 'none', color:'blue' }}>Trainings</Link>
+                <Link to='/trainings' key="trainings" style={{ textDecoration: 'none', color:'blue' }}>Trainings</Link>
             </Button>
             <Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}>
-                <Link to='/calendar' style={{ textDecoration: 'none', color:'blue'  }}>Calendar</Link>
+                <Link to='/calendar' key="calendar" style={{ textDecoration: 'none', color:'blue'  }}>Calendar</Link>
             </Button>
             <Button variant="outlined" sx={{ my: 2, color: 'white', display: 'block' }}>
-                <Link to='/charts' style={{ textDecoration: 'none', color:'blue'  }}>Charts</Link>
+                <Link to='/charts' key="charts" style={{ textDecoration: 'none', color:'blue'  }}>Charts</Link>
             </Button>
             </div>
-            <div style={{display: 'flex', height: 400, width: '90%'}}>
-                <img src={training} alt="Training" />
+            <div style={{display: 'flex', height: 400}}>
+                <img style={{ height: '80%'}} src={training} alt="Training" />
             </div>
         </div>
     )

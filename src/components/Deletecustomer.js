@@ -1,5 +1,7 @@
 import React from "react";
-import Button from '@mui/material/Button';
+import { IconButton } from "@mui/material";
+import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
+
 
 export default function Deletecustomer(props) {
   
@@ -24,7 +26,7 @@ export default function Deletecustomer(props) {
     return (
     
       <span>
-        <Button variant="contained" color="error" size="small" onClick={() => deleteCustomer()}>Delete</Button>
+        <IconButton aria-label="delete" onClick={() => deleteCustomer()}><PersonRemoveIcon /></IconButton>
       </span>
       
     );

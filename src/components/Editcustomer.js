@@ -5,6 +5,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
+import EditIcon from '@mui/icons-material/Edit';
+import { IconButton } from "@mui/material";
 
 export default function Editcustomer(props) {
 
@@ -65,7 +67,7 @@ export default function Editcustomer(props) {
 
     return (
         <div>
-            <Button onClick={handleClickOpen} variant="contained" size="small" >Edit</Button>
+            <IconButton aria-label="edit" onClick={handleClickOpen}><EditIcon /> </IconButton>
             <Dialog open={open} onClose={handleClose}>
                 <DialogTitle>Edit customer details</DialogTitle>
                 <DialogContent>
