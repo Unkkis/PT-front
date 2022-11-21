@@ -28,11 +28,11 @@ export default function Addcustomer() {
         setOpen(true);
       };
     //for closing the form
-      const handleClose = () => {
+    const handleClose = () => {
         setOpen(false);
-      };
+    };
 
-      const addCustomer = () => {
+    const addCustomer = () => {
         fetch('https://customerrest.herokuapp.com/api/customers', {
             method: 'POST',
             headers: {
@@ -42,7 +42,7 @@ export default function Addcustomer() {
         })
         .catch(err => console.error(err))
         handleClose();
-      }
+    }
 
     return (
         <div>
