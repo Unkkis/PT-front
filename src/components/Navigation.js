@@ -19,8 +19,8 @@ This component source is https://mui.com/material-ui/react-app-bar/ "App Bar wit
 const pages = [
   {name: 'Customers', href: '/customers'},
   {name: 'Trainings', href: '/trainings'},
-  {name: 'Kalenteri', href: '/calendar'}, 
-  {name: 'Tilastot', href: '/charts'}
+  {name: 'Calendar', href: '/calendar'}, 
+  {name: 'Charts', href: '/charts'}
 ];
 
 
