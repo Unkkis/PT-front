@@ -6,7 +6,7 @@ import PersonRemoveIcon from '@mui/icons-material/PersonRemove';
 export default function Deletecustomer(props) {
   
     const deleteCustomer = () => {
-        if (window.confirm('Are you sure?')){
+        if (window.confirm('Are you sure you want to delete customer?')){
             fetch(props.link, {method: 'DELETE'})
             .then(response => {
               if (response.ok) {

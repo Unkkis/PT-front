@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 export default function Deletetraining(props) {
   
     const deleteTraining = () => {
-        if (window.confirm('Are you sure?')){
+        if (window.confirm('Are you sure you want to delete training?')){
             fetch(`https://customerrest.herokuapp.com/api/trainings/${props.id}`, {method: 'DELETE'})
             .catch(err => console.error(err))
         }
